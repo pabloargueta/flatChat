@@ -1,0 +1,32 @@
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" type="text/css" rel="stylesheet"
+
+<div class="container">
+  <h1 class="text-center"><%= @chat_room.title %></h1>
+
+<div class="messaging text-center">
+
+
+
+<div class="mesgs">
+  <div id="messages" class="msg_history" data-chat-room-id="<%= @chat_room.id %>">
+  <%= render @chat_room.messages %>
+  </div>
+</div>
+</div>
+
+<%= form_for @message, url: '#', class:'type_msg' do |f| %>
+  <%= hidden_field_tag 'chat_room_id', @chat_room.id %>
+  <div class="form-group input_msg_write">
+    <%= f.text_area :body, class: 'form-control write_msg', placeholder:'Type a message From 2 to 250 characters'%>
+  </div>
+
+  <%= button_tag(class: 'btn btn-primary btn-lg') do %>
+  Post <i class="fa fa-paper-plane-o" aria-hidden="true"></i>
+  <% end %>
+    </div>
+          </div>
+        </div>
+      </div>
+  <%= link_to 'Back', :back , class: 'btn btn-primary btn-lg'%>
+<% end %>
+
